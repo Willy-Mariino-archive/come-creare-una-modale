@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React senza Vite</title>
+    <title>come creare una modale</title>
 
     <!-- React via CDN -->
 
@@ -25,7 +25,7 @@
             title = "titolo Modale",
             content = "Questo è il contenuto della modale",
             show = false,
-            oncClose = () => { }
+            onClose = () => { }
         }) {
             return show && (
                 <div className="modal-container">
@@ -48,7 +48,7 @@
             return (
                 <main>
                     <h1>Apllicazione React</h1>
-                    <p>count: {count}</p>
+
 
                     <button onClick={() => setShow(true)}>
                         open
@@ -61,7 +61,7 @@
                         title="il mio titolo preferito"
                         content="contenuto della modale"
                         show={show}
-                        oncClose={() => setShow(false)}
+                        onClose={() => setShow(false)}
                     />
 
                 </main>
