@@ -21,35 +21,43 @@
 
         const { useState } = React
 
+        // Componente Modal: rappresenta la finestra modale.
+        // Riceve le props:
+        // - title: titolo da mostrare nella modale
+        // - content: contenuto testuale della modale
+        // - show: booleano che determina se la modale è visibile
+        // - onClose: funzione chiamata quando si clicca il bottone di chiusura
         function Modal({
             title = "titolo Modale",
             content = "Questo è il contenuto della modale",
             show = false,
             onClose = () => { }
         }) {
+            // Se show è false, la modale non viene renderizzata.
             return show && (
                 <div className="modal-container">
-
+                    {/* Struttura della modale */}
                     <div className="modal">
                         <h2>{title}</h2>
                         <p>{content}</p>
+                        {/* Bottone per chiudere la modale, richiama la funzione onClose */}
                         <button onClick={onClose}>close</button>
                     </div>
-
                 </div>
-
             )
         }
 
+        // Componente principale dell'applicazione React
         const ReactApp = () => {
 
+            // Stato locale per gestire la visibilità della modale
             const [show, setShow] = useState(false)
 
             return (
                 <main>
-                    <h1>Apllicazione React</h1>
+                    <h1>Applicazione React con modale</h1>
 
-
+                    {/* Bottone che apre la modale impostando show a true */}
                     <button onClick={() => setShow(true)}>
                         open
                     </button>
@@ -57,6 +65,12 @@
                     <section>
                         <h2>section title</h2>
                     </section>
+                    {/* Inserimento del componente Modal.
+                        - title: titolo personalizzato
+                        - content: testo della modale
+                        - show: stato che determina se la modale è visibile
+                        - onClose: funzione che chiude la modale (imposta show a false)
+                    */}
                     <Modal
                         title="il mio titolo preferito"
                         content="contenuto della modale"
@@ -65,7 +79,6 @@
                     />
 
                 </main>
-
             )
         }
 
