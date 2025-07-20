@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>come creare una modale</title>
+
+    <!-- React via CDN -->
+
+    <!-- React -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+
+    <!-- ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel (JSX support in browser) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const { useState } = React
+
+
+        function Modal({
+            title = "Qui verrà mostrato il titolo della Modale ricevuto tramite prop",
+            content = "Questo  sarà il contenuto della modale",
+            show = false,
+            onClose = () => { }
+        }) {
+
+            return show && (
+                <div className="modal-container">
+
+                    <div className="modal">
+                        <h2>{title}</h2>
+                        <p>{content}</p>
+
+                        <button onClick={onClose}>close</button>
+                    </div>
+                </div>
+            )
+        }
+
+        const ReactApp = () => {
+
+            // Stato locale per gestire la visibilità della modale
+            const [show, setShow] = useState(false)
+
+            return (
+
+                <details>
+
+                    <summary> Applicazione React</summary>
+
+                    <div>
+
+                        <button onClick={() => setShow(true)}>
+                            open
+                        </button>
+
+                        <section>
+                            <h2>section title</h2>
+                            <Modal
+                                title="il mio titolo preferito"
+                                content="contenuto della modale"
+                                show={show}
+                                onClose={() => setShow(false)}
+                            />
+                        </section>
+                    </div>
+
+                </details>
+
+
+
+
+            )
+        }
+
+        const { createRoot } = ReactDOM
+
+        const elementoSpecifico = document.querySelector(".elemento-specifico")
+
+        const root = createRoot(elementoSpecifico)
+        root.render(<ReactApp />)
+    </script>
+
+</head>
+
+<body>
+
+    <div class="elemento-specifico">
+
+    </div>
+
+    <a href="index.html">torna indietro</a>
+
+
+</body>
+
+</html>

@@ -22,7 +22,7 @@
 
         const { useState } = React
 
-        // Componente Modal: rappresenta la finestra modale.
+        // Componente Modal: rappresenta la finestra modale. (componente figlio)
         // Riceve le props:
         // - title: titolo da mostrare nella modale
         // - content: contenuto testuale della modale
@@ -48,7 +48,7 @@
             )
         }
 
-        // Componente principale dell'applicazione React
+        // Componente principale dell'applicazione React (componente genitore, praticamente come se fosse app.jsx)
         const ReactApp = () => {
 
             // Stato locale per gestire la visibilità della modale
@@ -65,19 +65,22 @@
 
                     <section>
                         <h2>section title</h2>
-                    </section>
-                    {/* Inserimento del componente Modal.
+
+                        {/* Inserimento del componente Modal.
                         - title: titolo personalizzato
                         - content: testo della modale
                         - show: stato che determina se la modale è visibile
                         - onClose: funzione che chiude la modale (imposta show a false)
-                    */}
-                    <Modal
-                        title="il mio titolo preferito"
-                        content="contenuto della modale"
-                        show={show}
-                        onClose={() => setShow(false)}
-                    />
+                       */}
+                        <Modal
+                            title="il mio titolo preferito"
+                            content="contenuto della modale"
+                            show={show}
+                            onClose={() => setShow(false)}
+                        />
+                    </section>
+
+                    <a href="versione_con_details.html">versione con details</a>
 
                 </main>
             )
