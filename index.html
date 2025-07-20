@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>come creare una modale</title>
 
     <!-- React via CDN -->
@@ -28,8 +29,8 @@
         // - show: booleano che determina se la modale è visibile
         // - onClose: funzione chiamata quando si clicca il bottone di chiusura
         function Modal({
-            title = "titolo Modale",
-            content = "Questo è il contenuto della modale",
+            title = "Qui verrà mostrato il titolo della Modale ricevuto tramite prop",
+            content = "Questo  sarà il contenuto della modale",
             show = false,
             onClose = () => { }
         }) {
